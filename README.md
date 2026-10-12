@@ -1,6 +1,8 @@
 # Text To Speech Studio (Sheetal's Voice)
 
-A modern, high-fidelity Text-to-Speech (TTS) studio and multi-provider toolkit built with Python, Flask, and Vanilla CSS/JS. The application features a dedicated web interface for **Sheetal's Voice** using HeyGen's Starfish neural TTS engine, alongside CLI tools for HeyGen voice exploration and ElevenLabs multilingual streaming.
+🚀 **Live Public Web App**: [https://text-to-speech-wcuqxwg2gdpysxgpeizway.streamlit.app/](https://text-to-speech-wcuqxwg2gdpysxgpeizway.streamlit.app/)
+
+A modern, high-fidelity Text-to-Speech (TTS) studio and multi-provider toolkit built with Python, Flask, Streamlit, and Vanilla CSS/JS. The application features a dedicated web interface for **Sheetal's Voice** using HeyGen's Starfish neural TTS engine, alongside CLI tools for HeyGen voice exploration and ElevenLabs multilingual streaming.
 
 ---
 
