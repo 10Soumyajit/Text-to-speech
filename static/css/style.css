@@ -928,40 +928,241 @@ textarea::placeholder {
     display: none !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
+/* ==========================================================================
+   Mobile & Responsive Optimization
+   ========================================================================== */
+
+/* Prevent iOS Safari auto-zoom on input focus */
+@media screen and (max-width: 768px) {
+    textarea, input[type="text"] {
+        font-size: 16px !important;
+    }
+}
+
+/* Tablets and Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px 36px;
+    }
+
+    .app-container {
+        gap: 18px;
+    }
+
     .app-header h1 {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
+    }
+
+    .subtitle {
+        font-size: 0.92rem;
     }
 
     .voice-card {
-        padding: 16px;
+        padding: 16px 18px;
+        gap: 14px;
+    }
+
+    .avatar-ring {
+        width: 48px;
+        height: 48px;
+    }
+
+    .voice-name {
+        font-size: 1.2rem;
     }
 
     .studio-card {
-        padding: 18px;
+        padding: 20px 18px;
+        gap: 16px;
+    }
+
+    .preview-card {
+        padding: 20px 18px;
     }
 
     .action-bar {
         flex-direction: column;
         align-items: stretch;
+        gap: 12px;
     }
 
     .action-buttons-left,
     .action-buttons-right {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .btn {
         width: 100%;
+        min-height: 48px; /* Touch-friendly tap target */
+        font-size: 0.95rem;
+    }
+}
+
+/* Small SmartPhones (max-width: 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 14px 8px 28px;
+    }
+
+    .ambient-glow {
+        filter: blur(80px);
+        opacity: 0.3;
+    }
+
+    .header-badge {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        margin-bottom: 8px;
+    }
+
+    .app-header h1 {
+        font-size: 1.55rem;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        line-height: 1.45;
+    }
+
+    /* Voice Profile Card on small screens */
+    .voice-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 14px;
+        gap: 12px;
+    }
+
+    .voice-header-row {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .voice-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .code-pill {
+        max-width: 100%;
+        word-break: break-all;
+        font-size: 0.72rem;
+    }
+
+    /* Studio Card */
+    .studio-card {
+        padding: 16px 14px;
+        border-radius: var(--radius-md);
+    }
+
+    .studio-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .textarea-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 8px 12px;
+    }
+
+    .samples-section {
+        gap: 6px;
+    }
+
+    .sample-chips {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .chip {
+        width: 100%;
+        text-align: left;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        white-space: normal;
+        line-height: 1.35;
+    }
+
+    /* Alert Boxes */
+    .alert-box {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .alert-title {
+        font-size: 0.88rem;
+    }
+
+    .alert-message {
+        font-size: 0.8rem;
+    }
+
+    /* Player Controls on small phones */
+    .preview-card {
+        padding: 16px 14px;
+        border-radius: var(--radius-md);
+    }
+
+    .preview-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .custom-player-wrapper {
+        padding: 14px 12px;
     }
 
     .player-controls-row {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .player-controls-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .btn-play-pause {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+    }
+
+    .timeline-container {
+        width: 100%;
     }
 
     .volume-container {
         width: 100%;
-        justify-content: flex-end;
+        justify-content: space-between;
+        padding-top: 6px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #seek-bar::-webkit-slider-thumb {
+        width: 18px;
+        height: 18px;
+    }
+
+    .generation-meta {
+        font-size: 0.7rem;
+        gap: 6px;
+    }
+
+    .meta-tag {
+        font-size: 0.68rem;
     }
 }

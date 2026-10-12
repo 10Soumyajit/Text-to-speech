@@ -105,14 +105,49 @@ st.markdown("""
     .stButton>button {
         border-radius: 10px;
         font-weight: 600;
+        min-height: 46px;
         transition: all 0.2s ease;
     }
     .stDownloadButton>button {
         border-radius: 10px;
         font-weight: 600;
+        min-height: 46px;
         background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
         color: white !important;
         border: none !important;
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 640px) {
+        .block-container {
+            padding: 1.5rem 0.8rem 3rem !important;
+        }
+        .voice-profile-card {
+            flex-direction: column;
+            align-items: flex-start !important;
+            padding: 14px 16px !important;
+            gap: 12px !important;
+        }
+        .voice-id-code {
+            word-break: break-all;
+            font-size: 0.72rem !important;
+        }
+        .stTextArea textarea {
+            font-size: 16px !important; /* Prevents iOS auto-zoom */
+        }
+        .stButton>button, .stDownloadButton>button {
+            width: 100% !important;
+            min-height: 48px !important; /* Mobile touch target */
+            font-size: 0.92rem !important;
+            white-space: normal !important;
+            height: auto !important;
+            line-height: 1.3 !important;
+            padding: 10px 14px !important;
+        }
+        [data-testid="column"] {
+            min-width: 100% !important;
+            margin-bottom: 8px !important;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
