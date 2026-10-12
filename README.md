@@ -52,12 +52,16 @@ The primary focus of this project is **Sheetal's Voice** (`b219f9f8d8e6455e85e47
 ```
 Text-to-speech/
 ├── app.py                  # Flask web backend & API controller
+├── streamlit_app.py        # Streamlit cloud-deployable web app (public)
 ├── tts_heygen.py           # Production CLI tool for HeyGen TTS with --force-new logic
 ├── tts_elevenlabs.py       # ElevenLabs Multilingual v2 streaming TTS script
 ├── test-voice-id.py        # HeyGen Starfish voice discovery & pagination tool
 ├── test_app.py             # Automated unit & integration test suite (8 tests)
-├── requirements.txt        # Pinned Python package dependencies
+├── requirements.txt        # Pinned Python package dependencies (Flask + Streamlit)
 ├── .env                    # Environment credentials & voice IDs (git-ignored)
+├── .gitignore              # Git ignore rules protecting .env and venvs
+├── .streamlit/
+│   └── config.toml         # Streamlit dark theme & server settings
 ├── README.md               # Complete project documentation
 ├── templates/
 │   └── index.html          # Semantic HTML5 UI with glassmorphic styling
@@ -149,6 +153,43 @@ http://localhost:5000
 3. **Regenerate Voice (`--force-new`)**: Bypasses server caching to produce a freshly synthesized speech clip.
 4. **Download Audio**: Downloads the generated `.wav` audio file with descriptive filename (`sheetal_tts_<id>.wav`).
 5. **Interactive Player**: Scrub through the audio waveform, toggle play/pause, adjust volume, or mute.
+
+---
+
+## Deploying to Streamlit Cloud (Public Web App)
+
+The project includes [`streamlit_app.py`](streamlit_app.py), which can be deployed with one click to **Streamlit Community Cloud** to make the app publicly accessible worldwide.
+
+### 1. Test Locally with Streamlit
+```powershell
+streamlit run streamlit_app.py
+```
+This opens the Streamlit studio on `http://localhost:8501`.
+
+### 2. Push Your Latest Changes to GitHub
+```bash
+git add .
+git commit -m "Add Streamlit app and deployment configs"
+git push origin main
+```
+
+### 3. Deploy on Streamlit Community Cloud (Free & Public)
+1. Navigate to **[share.streamlit.io](https://share.streamlit.io)** and log in with your GitHub account.
+2. Click **"New app"** (or **"Create app"**).
+3. Fill in the deployment settings:
+   - **Repository**: `10Soumyajit/Text-to-speech`
+   - **Branch**: `main`
+   - **Main file path**: `streamlit_app.py`
+   - **App URL** (optional custom subdomain): e.g. `sheetal-tts.streamlit.app`
+4. Expand **Advanced settings** -> click **Secrets**.
+5. Paste your HeyGen API credentials:
+   ```toml
+   HEYGEN_API_KEY = "your_heygen_api_key_here"
+   HEYGEN_VOICE_ID = "b219f9f8d8e6455e85e470949d680229"
+   ```
+6. Click **Deploy!**
+
+Within 1-2 minutes, Streamlit will install the dependencies from `requirements.txt` and launch your public, interactive web application with a live shareable URL!
 
 ---
 

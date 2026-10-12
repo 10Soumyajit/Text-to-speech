@@ -1,0 +1,23 @@
+# Secrets and credentials
+.env
+
+# Virtual environments
+.venv/
+.venv-st/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary audio files
+output*.wav
+output*.mp3
+*.wav
+*.mp3
+
+# Testing & temporary
+scratch/
+.system_generated/
